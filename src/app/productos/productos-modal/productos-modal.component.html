@@ -1,0 +1,32 @@
+<mat-form-field appearance="fill">
+  <mat-label>Nombres</mat-label>
+  <input matInput placeholder="Nombres" [(ngModel)]="producto.nombre">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Cantidad</mat-label>
+  <input matInput placeholder="cantidad" [(ngModel)]="producto.cantidad">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Precio</mat-label>
+  <input matInput placeholder="Precio" [(ngModel)]="producto.precio">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label *ngIf="producto.categoria">{{producto.categoria.nombre}}</mat-label>
+  <mat-select matInput placeholder="Selecione una Categoria" [(ngModel)]="producto.categoria">
+    <mat-option *ngFor="let c of categoria" [value]="c">
+      {{c.nombre}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-button color="primary" (click)="aceptar()">
+Aceptar
+</button>
+
+<button mat-button color="accent" (click)="cancelar()">
+ Cancelar
+</button>
+
